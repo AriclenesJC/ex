@@ -1,182 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Lateral</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AryExpress</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-    <style>
-        body {
-            color: black;
-            font-family: Arial, sans-serif;
-            
-        }
-
-        .menulateral {
-            background-color: rgba(42, 71, 165, 0.205);
-            width: 4%;
-            height: 100vh;
-            padding-top: 20px;
-            padding-bottom: 100%;
-            box-shadow: 5px 0 black; 
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            transition:  2s;
-
-        }
-         .menulateral:hover {
-    width: 15%;
+<style>
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; 
+}
 
-        
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            width:100%;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        li:hover{
-            background-color: rgba(0, 0, 0, 0.288);
-            transition: 2s;
-        }
-        .botexp a {
-            display: flex;
-            color: black;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        li a {
-            display: flex;
-            color: black;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            text-decoration: none;
-        }
-
-
-        .icon {
-            font-size: 30px;
-        }
-
-        .txt {
-            font-size: 16px;
-        }
-        
-        .botexp {
-        width: 100%;
-        padding: 10px 20px;
-        color: black;
-        font-size: 35px;
-        }
-
-        .conteudo {
-    margin-left: 0px;
-    padding-top: 40px;
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #0f172a;
     display: flex;
-    gap: 5%;
-    transition: margin-left 2s;
+    justify-content: center;
+    align-items: center;
+    animation: fadeOut 1s ease forwards;
+    animation-delay: 1s;
+    transition: 1s;
 }
-.menulateral:hover ~ .conteudo {
+
+.carregando {
+    width: 90px;
+    height: 90px;
+    border: 10px solid rgba(255,255,255,.2);
+    border-top: 10px solid #38bdf8;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+}
+
+.menulateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100vh;
+    background: #020617;
+    color: white;
+    overflow: hidden;
+    transition: width 1s ;
+    display: none;
+}
+
+.menulateral:hover {
+    transition: 1s;
+    width: 220px;
+}
+.menulateral:hover ~ #conteudo {
+    transition: 1s;
     margin-left: 15%;
 }
-p{
- padding: 50px;
-}
-.carregando {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: black;
-    display: block;
-    border: 12px solid red;
-    background-color: transparent;
-    border-top: 10px solid transparent;
+.menulateral ul {
+    list-style: none;
+    padding: 0;
 }
 
-.carregando:hover {
-    animation: girar 2s linear infinite;
+.menulateral li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition:  .2s;
 }
-@keyframes girar{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
+
+.menulateral li a:hover {
+    background: #1e293b;
 }
+
+.icon {
+    font-size: 24px;
 }
-    </style>
+
+#conteudo {
+    margin-left: 70px;
+    padding: 40px;
+    display: none;
+    animation: fadeIn 1s ease forwards;
+    transition: 1s;
+}
+
+.geral {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background: rgba(169, 169, 169, 0.459);
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+    transition: transform .4s, box-shadow .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
+}
+
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 
 <body>
 
-<nav class="menulateral">
-
-
-    <div class="botexp">
-              <a href="#">
-                <span class="icon"> <i class="bi bi-list"></i></i></span>
-                <span class="txt"></span>
-            </a>
-    </div>
-
-    <ul>
-        <li>
-            <a href="#">
-                <span class="icon"><i class="bi bi-house-door"></i></span>
-                <span class="txt">Home</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                <span class="icon"><i class="bi bi-person-circle"></i></span>
-                <span class="txt">Profile</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                <span class="icon"><i class="bi bi-gear"></i></span>
-                <span class="txt">Settings</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                <span class="icon"><i class="bi bi-cart"></i></span>
-                <span class="txt">Cart</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                <span class="icon"><i class="bi bi-telephone-x-fill"></i></span>
-                <span class="txt">Contact</span>
-            </a>
-        </li>
-    </ul>
-  </nav> 
-<main class="conteudo">
-    <div></div>
-<div id="carr"> <img src="carr.jfif" alt=""><p>aqui vai algum conteudo</p></div>
-
-<div id="cah"> <img src="cah.jfif" alt=""><p>aqui vai algum conteudo</p></div>
-
-<div id="ham"> <img src="ham.jfif" alt=""><p>aqui vai algum conteudo</p></div> 
+<div id="loader">
+    <div class="carregando"></div>
 </div>
-<div class="carregando"></div>
+
+<nav class="menulateral" id="menulateral">
+<ul>
+    <li><a href="#"><i class="bi bi-house-door icon"></i><span>Home</span></a></li>
+    <li><a href="#"><i class="bi bi-person icon"></i><span>Perfil</span></a></li>
+    <li><a href="#"><i class="bi bi-gear icon"></i><span>Configurações</span></a></li>
+    <li><a href="#"><i class="bi bi-cart icon"></i><span>Carrinho</span></a></li>
+    <li><a href="#"><i class="bi bi-telephone icon"></i><span>Contato</span></a></li>
+</ul>
+</nav>
+
+<main id="conteudo">
+<h1>AryExpress 🚀</h1>
+
+<div class="geral">
+    <div class="card">Produto 1</div>
+    <div class="card">Produto 2</div>
+    <div class="card">Produto 3</div>
+</div>
 </main>
+
+<script>
+window.onload = () => {
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("menulateral").style.display = "block";
+        document.getElementById("conteudo").style.display = "block";
+        document.body.style.overflow = "auto";
+    }, 2000);
+};
+</script>
+
 </body>
 </html>
