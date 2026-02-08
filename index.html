@@ -10,9 +10,8 @@
     <style>
         body {
             color: black;
-            margin: 0;
             font-family: Arial, sans-serif;
-            padding: 0;
+            
         }
 
         .menulateral {
@@ -83,13 +82,40 @@
         }
 
         .conteudo {
-    margin-left: 40%;    
-    padding: 20px;
+    margin-left: 0px;
+    padding-top: 40px;
     display: flex;
-    gap: 10%;
+    gap: 5%;
+    transition: margin-left 2s;
+}
+.menulateral:hover ~ .conteudo {
+    margin-left: 15%;
+}
+p{
+ padding: 50px;
+}
+.carregando {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: black;
+    display: block;
+    border: 12px solid red;
+    background-color: transparent;
+    border-top: 10px solid transparent;
 }
 
-
+.carregando:hover {
+    animation: girar 2s linear infinite;
+}
+@keyframes girar{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+}
+}
     </style>
 </head>
 
@@ -143,13 +169,14 @@
     </ul>
   </nav> 
 <main class="conteudo">
+    <div></div>
+<div id="carr"> <img src="carr.jfif" alt=""><p>aqui vai algum conteudo</p></div>
 
-<div><p>aqui vai algum conteudo</p></div>
+<div id="cah"> <img src="cah.jfif" alt=""><p>aqui vai algum conteudo</p></div>
 
-<div><p>aqui vai algum conteudo</p></div>
-
-<div><p>aqui vai algum conteudo</p></div>
-
+<div id="ham"> <img src="ham.jfif" alt=""><p>aqui vai algum conteudo</p></div> 
+</div>
+<div class="carregando"></div>
 </main>
 </body>
 </html>
